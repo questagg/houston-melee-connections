@@ -1,0 +1,47 @@
+{
+  "title": "Welcome to Houston Melee Connections!",
+  "date": "April 27th, 2026",
+  "funFact": "Two fun facts to start! \n\n1. We are fucking gold. \n2. Cash's belly is able to digest food and drink into lustrous pearls. He has 30 in him currently.",
+  "groups": [
+    {
+      "name": "Campy Things",
+      "difficulty": "yellow",
+      "words": [
+        "A TENT",
+        "A SLEEPING BAG",
+        "FAI'S GANON",
+        "A COOLER"
+      ]
+    },
+    {
+      "name": "Heaviest Hydra Users",
+      "difficulty": "green",
+      "words": [
+        "GEMZ",
+        "JARBY",
+        "LUIGIPHONE",
+        "G3"
+      ]
+    },
+    {
+      "name": "They Wear Glasses",
+      "difficulty": "blue",
+      "words": [
+        "CILAN",
+        "BRYCE",
+        "TVBEN",
+        "AIR"
+      ]
+    },
+    {
+      "name": "The Four Horsemen of Sheik",
+      "difficulty": "purple",
+      "words": [
+        "BREEZY",
+        "BITZ",
+        "DRCONDOR",
+        "HOD"
+      ]
+    }
+  ]
+}
