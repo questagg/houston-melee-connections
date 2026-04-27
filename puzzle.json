@@ -121,6 +121,710 @@
     "ashton",
     "xxIAMHARDHELPxx"
   ],
+  "playerData": [
+    {
+      "rank": 1,
+      "name": "Cilan",
+      "points": 7468,
+      "characters": "Fox"
+    },
+    {
+      "rank": 2,
+      "name": "warme",
+      "points": 7242,
+      "characters": "Falco"
+    },
+    {
+      "rank": 3,
+      "name": "Salt",
+      "points": 7227,
+      "characters": "Captain Falcon - Falco - Fox"
+    },
+    {
+      "rank": 4,
+      "name": "AlyJ",
+      "points": 7028,
+      "characters": "Falco"
+    },
+    {
+      "rank": 5,
+      "name": "Ismon",
+      "points": 7003,
+      "characters": "Peach"
+    },
+    {
+      "rank": 6,
+      "name": "Air",
+      "points": 6999,
+      "characters": "Marth"
+    },
+    {
+      "rank": 7,
+      "name": "Shadow_PR",
+      "points": 6908,
+      "characters": "Peach"
+    },
+    {
+      "rank": 8,
+      "name": "Questa",
+      "points": 6399,
+      "characters": "Peach"
+    },
+    {
+      "rank": 9,
+      "name": "Chill",
+      "points": 6275,
+      "characters": "Falco"
+    },
+    {
+      "rank": 10,
+      "name": "Haunter",
+      "points": 6259,
+      "characters": ""
+    },
+    {
+      "rank": 11,
+      "name": "Antislycer",
+      "points": 6188,
+      "characters": ""
+    },
+    {
+      "rank": 12,
+      "name": "DJC-Bass",
+      "points": 6171,
+      "characters": ""
+    },
+    {
+      "rank": 13,
+      "name": "Chikin",
+      "points": 5751,
+      "characters": ""
+    },
+    {
+      "rank": 14,
+      "name": "Yuse",
+      "points": 5447,
+      "characters": "Peach"
+    },
+    {
+      "rank": 15,
+      "name": "Castbros",
+      "points": 5432,
+      "characters": ""
+    },
+    {
+      "rank": 16,
+      "name": "Glo",
+      "points": 5299,
+      "characters": "Marth"
+    },
+    {
+      "rank": 17,
+      "name": "CHBE Boi",
+      "points": 5142,
+      "characters": ""
+    },
+    {
+      "rank": 18,
+      "name": "DroskiDro",
+      "points": 5052,
+      "characters": "Falco"
+    },
+    {
+      "rank": 19,
+      "name": "Touhni",
+      "points": 5005,
+      "characters": "Marth"
+    },
+    {
+      "rank": 20,
+      "name": "DrCondor",
+      "points": 5002,
+      "characters": "Sheik"
+    },
+    {
+      "rank": 21,
+      "name": "Lumbre",
+      "points": 4929,
+      "characters": "Luigi"
+    },
+    {
+      "rank": 22,
+      "name": "Kxrma",
+      "points": 4860,
+      "characters": ""
+    },
+    {
+      "rank": 23,
+      "name": "Intravisual",
+      "points": 4835,
+      "characters": ""
+    },
+    {
+      "rank": 24,
+      "name": "Potato",
+      "points": 4789,
+      "characters": "Sheik"
+    },
+    {
+      "rank": 25,
+      "name": "MEN",
+      "points": 4781,
+      "characters": "Donkey Kong - Ganondorf"
+    },
+    {
+      "rank": 26,
+      "name": "Pox",
+      "points": 4767,
+      "characters": ""
+    },
+    {
+      "rank": 27,
+      "name": "Bryce",
+      "points": 4760,
+      "characters": "Marth"
+    },
+    {
+      "rank": 28,
+      "name": "minymidge",
+      "points": 4730,
+      "characters": "Captain Falcon - Falco - Fox"
+    },
+    {
+      "rank": 29,
+      "name": "Fhil",
+      "points": 4715,
+      "characters": ""
+    },
+    {
+      "rank": 30,
+      "name": "Mariposa",
+      "points": 4568,
+      "characters": ""
+    },
+    {
+      "rank": 31,
+      "name": "Cade",
+      "points": 4414,
+      "characters": "Captain Falcon"
+    },
+    {
+      "rank": 32,
+      "name": "Prince Fai",
+      "points": 4404,
+      "characters": "Fox"
+    },
+    {
+      "rank": 33,
+      "name": "Pi2z",
+      "points": 4285,
+      "characters": "Falco"
+    },
+    {
+      "rank": 34,
+      "name": "Terms",
+      "points": 4228,
+      "characters": "Falco"
+    },
+    {
+      "rank": 35,
+      "name": "G00se",
+      "points": 4027,
+      "characters": "Fox"
+    },
+    {
+      "rank": 36,
+      "name": "UHA | UchihaScar",
+      "points": 4025,
+      "characters": ""
+    },
+    {
+      "rank": 37,
+      "name": "Rascal",
+      "points": 4017,
+      "characters": ""
+    },
+    {
+      "rank": 38,
+      "name": "bitz",
+      "points": 3897,
+      "characters": ""
+    },
+    {
+      "rank": 39,
+      "name": "Jack",
+      "points": 3887,
+      "characters": ""
+    },
+    {
+      "rank": 40,
+      "name": "Steinbreezy",
+      "points": 3827,
+      "characters": "Sheik"
+    },
+    {
+      "rank": 41,
+      "name": "Nero",
+      "points": 3793,
+      "characters": ""
+    },
+    {
+      "rank": 42,
+      "name": "SirTaco",
+      "points": 3783,
+      "characters": ""
+    },
+    {
+      "rank": 43,
+      "name": "STaCk MoNEy Ian",
+      "points": 3748,
+      "characters": "Fox"
+    },
+    {
+      "rank": 44,
+      "name": "Chapapa",
+      "points": 3745,
+      "characters": "Captain Falcon"
+    },
+    {
+      "rank": 45,
+      "name": "Hyruler",
+      "points": 3724,
+      "characters": ""
+    },
+    {
+      "rank": 46,
+      "name": "g3",
+      "points": 3663,
+      "characters": "Captain Falcon"
+    },
+    {
+      "rank": 47,
+      "name": "IR",
+      "points": 3449,
+      "characters": ""
+    },
+    {
+      "rank": 48,
+      "name": "FLOW | Demon",
+      "points": 3357,
+      "characters": ""
+    },
+    {
+      "rank": 49,
+      "name": "Cal",
+      "points": 3352,
+      "characters": ""
+    },
+    {
+      "rank": 50,
+      "name": "Techdeck",
+      "points": 3348,
+      "characters": "Captain Falcon"
+    },
+    {
+      "rank": 51,
+      "name": "SLEE | Worb",
+      "points": 3329,
+      "characters": "Luigi"
+    },
+    {
+      "rank": 52,
+      "name": "Diddy Booty Jackson",
+      "points": 3326,
+      "characters": ""
+    },
+    {
+      "rank": 53,
+      "name": "TVBen",
+      "points": 3295,
+      "characters": "Marth"
+    },
+    {
+      "rank": 54,
+      "name": "Mega",
+      "points": 3224,
+      "characters": "Fox"
+    },
+    {
+      "rank": 55,
+      "name": "Twiffler",
+      "points": 3164,
+      "characters": ""
+    },
+    {
+      "rank": 56,
+      "name": "KV",
+      "points": 3123,
+      "characters": ""
+    },
+    {
+      "rank": 57,
+      "name": "Miles",
+      "points": 3080,
+      "characters": "Falco"
+    },
+    {
+      "rank": 58,
+      "name": "gamer",
+      "points": 2980,
+      "characters": ""
+    },
+    {
+      "rank": 59,
+      "name": "JF",
+      "points": 2978,
+      "characters": ""
+    },
+    {
+      "rank": 60,
+      "name": "BonBon BeanBean",
+      "points": 2920,
+      "characters": ""
+    },
+    {
+      "rank": 61,
+      "name": "X...",
+      "points": 2902,
+      "characters": ""
+    },
+    {
+      "rank": 62,
+      "name": "irrelevant",
+      "points": 2803,
+      "characters": ""
+    },
+    {
+      "rank": 63,
+      "name": "ke$ha nightcore",
+      "points": 2781,
+      "characters": ""
+    },
+    {
+      "rank": 64,
+      "name": "Watcher",
+      "points": 2773,
+      "characters": ""
+    },
+    {
+      "rank": 65,
+      "name": "zim",
+      "points": 2656,
+      "characters": "Ice Climbers"
+    },
+    {
+      "rank": 66,
+      "name": "SJW | Rukyy",
+      "points": 2589,
+      "characters": ""
+    },
+    {
+      "rank": 67,
+      "name": "Jarby",
+      "points": 2449,
+      "characters": ""
+    },
+    {
+      "rank": 68,
+      "name": "PL",
+      "points": 2391,
+      "characters": "Sheik"
+    },
+    {
+      "rank": 69,
+      "name": "PNG | nano",
+      "points": 2341,
+      "characters": "Marth"
+    },
+    {
+      "rank": 70,
+      "name": "CASH",
+      "points": 2326,
+      "characters": "Falco"
+    },
+    {
+      "rank": 71,
+      "name": "vapee",
+      "points": 2175,
+      "characters": ""
+    },
+    {
+      "rank": 72,
+      "name": "RFO | Shelo",
+      "points": 2157,
+      "characters": "Marth"
+    },
+    {
+      "rank": 73,
+      "name": "Ramz",
+      "points": 2136,
+      "characters": "Falco"
+    },
+    {
+      "rank": 74,
+      "name": "juss.",
+      "points": 2130,
+      "characters": ""
+    },
+    {
+      "rank": 75,
+      "name": "ActualMonday",
+      "points": 2086,
+      "characters": ""
+    },
+    {
+      "rank": 76,
+      "name": "TRG | Squishyy",
+      "points": 2042,
+      "characters": ""
+    },
+    {
+      "rank": 77,
+      "name": "LuigiAC",
+      "points": 2041,
+      "characters": ""
+    },
+    {
+      "rank": 78,
+      "name": "Rambisco",
+      "points": 2017,
+      "characters": ""
+    },
+    {
+      "rank": 79,
+      "name": "brentos",
+      "points": 1853,
+      "characters": ""
+    },
+    {
+      "rank": 80,
+      "name": "Bobby Flay",
+      "points": 1843,
+      "characters": "Falco"
+    },
+    {
+      "rank": 81,
+      "name": "Gum",
+      "points": 1762,
+      "characters": ""
+    },
+    {
+      "rank": 82,
+      "name": "dLN",
+      "points": 1691,
+      "characters": "Falco"
+    },
+    {
+      "rank": 83,
+      "name": "Wertget",
+      "points": 1670,
+      "characters": "Captain Falcon - Falco"
+    },
+    {
+      "rank": 84,
+      "name": "A(YK) | Collwizard",
+      "points": 1647,
+      "characters": ""
+    },
+    {
+      "rank": 85,
+      "name": "Bombchu",
+      "points": 1639,
+      "characters": ""
+    },
+    {
+      "rank": 86,
+      "name": "BUH",
+      "points": 1579,
+      "characters": "Bowser"
+    },
+    {
+      "rank": 87,
+      "name": "Nasty",
+      "points": 1522,
+      "characters": ""
+    },
+    {
+      "rank": 88,
+      "name": "lzrd",
+      "points": 1442,
+      "characters": "Pikachu"
+    },
+    {
+      "rank": 89,
+      "name": "Nomad",
+      "points": 1329,
+      "characters": ""
+    },
+    {
+      "rank": 90,
+      "name": "raultheghoul",
+      "points": 1235,
+      "characters": "Falco"
+    },
+    {
+      "rank": 91,
+      "name": "Schmoinguss",
+      "points": 1129,
+      "characters": ""
+    },
+    {
+      "rank": 92,
+      "name": "JNSA4",
+      "points": 1116,
+      "characters": ""
+    },
+    {
+      "rank": 93,
+      "name": "meeebis",
+      "points": 1034,
+      "characters": ""
+    },
+    {
+      "rank": 94,
+      "name": "Biotroid",
+      "points": 940,
+      "characters": "Samus"
+    },
+    {
+      "rank": 95,
+      "name": "RA2S | Raulata2stair",
+      "points": 785,
+      "characters": ""
+    },
+    {
+      "rank": 96,
+      "name": "Leo.",
+      "points": 254,
+      "characters": ""
+    },
+    {
+      "rank": 97,
+      "name": "Pumpkin Hill",
+      "points": 149,
+      "characters": ""
+    },
+    {
+      "rank": 98,
+      "name": "Gemz",
+      "points": 117,
+      "characters": "Falco"
+    },
+    {
+      "rank": 99,
+      "name": "zombiespartan73",
+      "points": 78,
+      "characters": "Jigglypuff"
+    },
+    {
+      "rank": 100,
+      "name": "Axel",
+      "points": 65,
+      "characters": ""
+    },
+    {
+      "rank": 101,
+      "name": "SDH",
+      "points": 57,
+      "characters": ""
+    },
+    {
+      "rank": 102,
+      "name": "Voridin",
+      "points": 53,
+      "characters": ""
+    },
+    {
+      "rank": 103,
+      "name": "TeeCee",
+      "points": 25,
+      "characters": "Fox"
+    },
+    {
+      "rank": 104,
+      "name": "snowcrow",
+      "points": 12,
+      "characters": ""
+    },
+    {
+      "rank": 105,
+      "name": "All Aboard",
+      "points": 5,
+      "characters": ""
+    },
+    {
+      "rank": 106,
+      "name": "Chowdari",
+      "points": 0,
+      "characters": ""
+    },
+    {
+      "rank": 107,
+      "name": "D_I_RT",
+      "points": 0,
+      "characters": ""
+    },
+    {
+      "rank": 108,
+      "name": "raul@a2stair",
+      "points": 0,
+      "characters": ""
+    },
+    {
+      "rank": 109,
+      "name": "kipper",
+      "points": 0,
+      "characters": "Falco - Fox - Marth - Peach"
+    },
+    {
+      "rank": 110,
+      "name": "kotaro",
+      "points": 0,
+      "characters": ""
+    },
+    {
+      "rank": 111,
+      "name": "RosettaxCloud",
+      "points": 0,
+      "characters": ""
+    },
+    {
+      "rank": 112,
+      "name": "MDL | NapTime!?",
+      "points": 0,
+      "characters": ""
+    },
+    {
+      "rank": 113,
+      "name": "weejis",
+      "points": 0,
+      "characters": ""
+    },
+    {
+      "rank": 114,
+      "name": "Lukas",
+      "points": 0,
+      "characters": ""
+    },
+    {
+      "rank": 115,
+      "name": "snail",
+      "points": 0,
+      "characters": "Falco"
+    },
+    {
+      "rank": 116,
+      "name": "ashton",
+      "points": 0,
+      "characters": ""
+    },
+    {
+      "rank": 117,
+      "name": "xxIAMHARDHELPxx",
+      "points": 0,
+      "characters": ""
+    }
+  ],
   "groups": [
     {
       "name": "Things that counter Cilan",
@@ -166,7 +870,7 @@
   "guessGame": {
     "enabled": true,
     "title": "What player is this?",
-    "prompt": "Watch the first 30 seconds. Who is playing?",
+    "prompt": "Watch the first 30 seconds.\nWho is playing?",
     "videoSrc": "guess-clips/touhni.mp4",
     "guessPort": "Player 2",
     "stockIcon": "",
