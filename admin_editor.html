@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Houston Melee Connections</title>
+  <style>
+    :root {
+      --bg: #f7f4ed;
+      --card: #ffffff;
+      --text: #242424;
+      --muted: #666;
+      --border: #d7d2c8;
+      --selected: #5a5a5a;
+      --green: #a8d08d;
+      --yellow: #f4d35e;
+      --blue: #9cc3e6;
+      --purple: #c7a0d8;
+      --danger: #d9534f;
+      --ok: #2e7d32;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      padding: 22px 18px 10px;
+      text-align: center;
+    }
+    h1 { margin: 0; font-size: 34px; letter-spacing: -0.5px; }
+    .subtitle { margin-top: 6px; color: var(--muted); }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 12px 18px 40px; }
+    .toolbar, .status, .actions, .editor-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .toolbar { margin-bottom: 16px; }
+    button, .file-label {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      padding: 11px 15px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover, .file-label:hover { filter: brightness(0.97); }
+    button.primary { background: #242424; color: white; border-color: #242424; }
+    button.danger { background: var(--danger); color: white; border-color: var(--danger); }
+    button:disabled { opacity: .45; cursor: not-allowed; }
+    input[type=file] { display: none; }
+
+    .solved-groups { display: grid; gap: 8px; margin: 0 auto 12px; max-width: 680px; }
+    .solved-card {
+      padding: 13px;
+      text-align: center;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,.12);
+      font-weight: 700;
+      animation: pop .2s ease-out;
+    }
+    .solved-card small { display: block; margin-top: 6px; font-weight: 600; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .tile {
+      min-height: 82px;
+      border: 0;
+      border-radius: 10px;
+      background: #e8e3d7;
+      font-size: clamp(14px, 2.2vw, 20px);
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      user-select: none;
+    }
+    .tile.selected { background: var(--selected); color: white; }
+    .status { margin: 18px 0 10px; min-height: 28px; align-items: center; }
+    .message { text-align: center; font-weight: 700; }
+    .message.bad { color: var(--danger); }
+    .message.good { color: var(--ok); }
+    .mistakes { color: var(--muted); font-weight: 700; }
+    .hidden { display: none !important; }
+    .login-card{max-width:430px;margin:28px auto 0;background:#111318;color:#f2f5f7;border:1px solid #303642;border-radius:18px;padding:22px;box-shadow:0 12px 32px rgba(0,0,0,.35)}
+    .login-card p{color:#b8c0cc;line-height:1.45}.login-card input{background:#1a1f29!important;color:#fff!important;border-color:#3a4250!important}.login-error{color:#ff8f96;font-weight:800;min-height:20px;margin-top:10px;text-align:center}.tile.shake{animation:shake .38s ease-in-out}.message.shake,.mistakes.shake{animation:shakeText .38s ease-in-out}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(4px)}}@keyframes shakeText{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+
+    .editor {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #111318;
+      color: #f2f5f7;
+      border: 1px solid #303642;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 12px 32px rgba(0,0,0,.35);
+    }
+    .editor h2 { margin: 0 0 8px; color: #ffffff; }
+    .editor p { color: #b8c0cc; margin-top: 0; line-height: 1.45; }
+    .field { margin: 12px 0; }
+    label { display: block; font-weight: 800; margin-bottom: 6px; }
+    .editor label { color: #f2f5f7; }
+    input[type=text], textarea, select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .editor input[type=text], .editor textarea, .editor select {
+      border-color: #3a4250;
+      background: #1a1f29;
+      color: #ffffff;
+    }
+    .editor input[type=text]::placeholder, .editor textarea::placeholder { color: #8791a1; }
+    textarea { min-height: 72px; resize: vertical; }
+    .groups-editor { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .group-box { border: 1px solid var(--border); border-radius: 14px; padding: 12px; background: #fbfaf7; }
+    .editor .group-box { border-color: #303642; background: #171b23; }
+    .hint { font-size: 13px; color: var(--muted); }
+    .editor .hint { color: #aeb7c4; }
+    .editor button { background: #202633; color: #f2f5f7; border-color: #3a4250; }
+    .editor button.primary { background: #f2f5f7; color: #111318; border-color: #f2f5f7; }
+    .footer-note { max-width: 680px; margin: 20px auto 0; color: var(--muted); font-size: 13px; text-align: center; line-height: 1.4; }
+    @keyframes pop { from { transform: scale(.98); opacity: .6; } to { transform: scale(1); opacity: 1; } }
+    @media (max-width: 620px) {
+      .grid { gap: 7px; }
+      .tile { min-height: 64px; font-size: 13px; }
+      .groups-editor { grid-template-columns: 1fr; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Houston Melee Connections</h1>
+    <div class="subtitle" id="puzzleTitle">Admin editor — update the fun fact and puzzle before uploading.</div>
+  </header>
+
+  <section id="loginView" class="login-card">
+    <h2>Admin Login</h2>
+    <p>Enter the editor username and password to update puzzles before uploading.</p>
+    <div class="field"><label for="adminUser">Username</label><input id="adminUser" type="text" autocomplete="username"></div>
+    <div class="field"><label for="adminPass">Password</label><input id="adminPass" type="password" autocomplete="current-password"></div>
+    <div class="editor-actions"><button id="loginBtn" class="primary">Unlock Editor</button></div>
+    <div id="loginError" class="login-error"></div>
+  </section>
+
+  <main class="wrap hidden" id="appWrap">
+    <div class="toolbar">
+      <button id="playBtn" class="primary">Play</button>
+      <button id="editBtn">Edit Puzzle</button>
+      <button id="newBtn">New Blank Puzzle</button>
+      <button id="exportBtn">Export Puzzle File</button>
+      <button id="logoutBtn" class="danger">Lock Admin</button>
+      <label class="file-label" for="importFile">Import Puzzle File</label>
+      <input id="importFile" type="file" accept="application/json,.json" />
+    </div>
+
+    <section id="gameView">
+      <div class="solved-groups" id="solvedGroups"></div>
+      <div class="grid" id="grid"></div>
+      <div class="status">
+        <div class="mistakes" id="mistakes"></div>
+        <div class="message" id="message"></div>
+      </div>
+      <div class="actions">
+        <button id="shuffleBtn">Shuffle</button>
+        <button id="deselectBtn">Deselect All</button>
+        <button id="submitBtn" class="primary">Submit</button>
+        <button id="resetBtn" class="danger">Reset Game</button>
+      </div>
+      <div class="footer-note">Your puzzle and progress save in this browser automatically. Use Export/Import to move puzzles between computers.</div>
+    </section>
+
+    <section id="editorView" class="editor hidden">
+      <h2>Edit Today’s Puzzle</h2>
+      <p>Type a category name, exactly four words for each group, and an optional fun fact. Click “Save & Play” when done, then export <strong>puzzle.json</strong> for upload.</p>
+      <div class="field">
+        <label for="titleInput">Puzzle title</label>
+        <input id="titleInput" type="text" placeholder="Houston Melee Connections" />
+      </div>
+      <div class="field">
+        <label for="dateInput">Puzzle date</label>
+        <input id="dateInput" type="text" placeholder="Example: Week of April 27, 2026" />
+        <div class="hint">This appears under the title on the public page.</div>
+      </div>
+      <div class="field">
+        <label for="funFactInput">Fun fact of the week</label>
+        <textarea id="funFactInput" placeholder="Example: This week’s bracket had three Game 5 last-stock sets in winners side."></textarea>
+        <div class="hint">This appears on the public game page. Leave it blank to hide it.</div>
+      </div>
+      <div class="groups-editor" id="groupsEditor"></div>
+      <div class="editor-actions" style="margin-top:16px;">
+        <button id="saveBtn" class="primary">Save & Play</button>
+        <button id="validateBtn">Check Puzzle</button>
+      </div>
+      <div class="message" id="editorMessage" style="margin-top:14px;"></div>
+    </section>
+  </main>
+
+  <script>
+    const ADMIN_SESSION_KEY = 'hmc-admin-unlocked-v1';
+    const ADMIN_USERNAME = 'questa';
+    const ADMIN_PASSWORD = 'steinbreezysfeet';
+    const STORAGE_KEY = 'daily-connections-puzzle-v1';
+    const PROGRESS_KEY = 'daily-connections-progress-v1';
+    const colors = { yellow: 'var(--yellow)', green: 'var(--green)', blue: 'var(--blue)', purple: 'var(--purple)' };
+
+    const defaultPuzzle = {
+      title: 'Houston Melee Connections',
+      date: 'This Week',
+      funFact: 'Fun fact of the week: Houston Melee runs on community, rivalries, and last-stock miracles.',
+      groups: [
+        { name: 'Things That Fly', difficulty: 'yellow', words: ['BIRD', 'PLANE', 'KITE', 'DRONE'] },
+        { name: 'Breakfast Foods', difficulty: 'green', words: ['EGGS', 'BACON', 'TOAST', 'CEREAL'] },
+        { name: 'Keyboard Keys', difficulty: 'blue', words: ['SHIFT', 'ENTER', 'SPACE', 'ESCAPE'] },
+        { name: 'Words Before “Ball”', difficulty: 'purple', words: ['BASKET', 'BASE', 'FOOT', 'SNOW'] }
+      ]
+    };
+
+    let puzzle = loadPuzzle();
+    let selected = [];
+    let remainingWords = [];
+    let solved = [];
+    let mistakes = 0;
+
+    const gameView = document.getElementById('gameView');
+    const editorView = document.getElementById('editorView');
+    const grid = document.getElementById('grid');
+    const message = document.getElementById('message');
+    const mistakesEl = document.getElementById('mistakes');
+    const solvedGroups = document.getElementById('solvedGroups');
+
+    function normalizeWord(word) { return word.trim().toUpperCase(); }
+    function sortedKey(words) { return words.map(normalizeWord).sort().join('|'); }
+    function shuffle(array) {
+      const a = [...array];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+    function loadPuzzle() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultPuzzle; }
+      catch { return defaultPuzzle; }
+    }
+    function savePuzzle() { localStorage.setItem(STORAGE_KEY, JSON.stringify(puzzle)); }
+    function clearProgress() { localStorage.removeItem(PROGRESS_KEY); }
+    function saveProgress() { localStorage.setItem(PROGRESS_KEY, JSON.stringify({ remainingWords, solved, mistakes })); }
+    function loadProgress() {
+      try {
+        const progress = JSON.parse(localStorage.getItem(PROGRESS_KEY));
+        if (!progress) return false;
+        const allCurrent = puzzle.groups.flatMap(g => g.words.map(normalizeWord)).sort().join('|');
+        const allProgress = [...progress.remainingWords, ...progress.solved.flatMap(g => g.words)].map(normalizeWord).sort().join('|');
+        if (allCurrent !== allProgress) return false;
+        remainingWords = progress.remainingWords;
+        solved = progress.solved;
+        mistakes = progress.mistakes || 0;
+        return true;
+      } catch { return false; }
+    }
+    function startGame(fresh = false) {
+      selected = [];
+      if (fresh || !loadProgress()) {
+        remainingWords = shuffle(puzzle.groups.flatMap(g => g.words.map(normalizeWord)));
+        solved = [];
+        mistakes = 0;
+        saveProgress();
+      }
+      document.getElementById('puzzleTitle').textContent = (puzzle.funFact || '').trim() || 'Admin editor — update the fun fact and puzzle before uploading.';
+      setMessage('');
+      renderGame();
+    }
+    function renderGame() {
+      grid.innerHTML = '';
+      solvedGroups.innerHTML = '';
+      solved.forEach(group => {
+        const card = document.createElement('div');
+        card.className = 'solved-card';
+        card.style.background = colors[group.difficulty] || 'var(--green)';
+        card.innerHTML = `${escapeHtml(group.name)}<small>${group.words.map(escapeHtml).join(', ')}</small>`;
+        solvedGroups.appendChild(card);
+      });
+      remainingWords.forEach(word => {
+        const btn = document.createElement('button');
+        btn.className = 'tile' + (selected.includes(word) ? ' selected' : '');
+        btn.textContent = word;
+        btn.onclick = () => toggleWord(word);
+        grid.appendChild(btn);
+      });
+      mistakesEl.textContent = `Mistakes: ${mistakes} / 4`;
+      document.getElementById('submitBtn').disabled = selected.length !== 4 || mistakes >= 4;
+    }
+    function toggleWord(word) {
+      if (selected.includes(word)) selected = selected.filter(w => w !== word);
+      else {
+        if (selected.length >= 4) return setMessage('You can only select 4 words.', 'bad');
+        selected.push(word);
+      }
+      renderGame();
+    }
+    function bestMatchCount(words) { return Math.max(...puzzle.groups.map(g => words.filter(w => g.words.map(normalizeWord).includes(w)).length)); }
+    function shakeStatus(){ [message,mistakesEl].forEach(el=>{el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake');}); }
+    function shakeSelection(words){ requestAnimationFrame(()=>{document.querySelectorAll('.tile').forEach(tile=>{if(words.includes(tile.textContent)){tile.classList.remove('shake'); void tile.offsetWidth; tile.classList.add('shake');}}); shakeStatus();}); }
+    function submitGuess() {
+      if (selected.length !== 4) { setMessage('Select exactly 4 words.', 'bad'); shakeStatus(); return; }
+      const guess = [...selected];
+      const guessKey = sortedKey(guess);
+      const group = puzzle.groups.find(g => sortedKey(g.words) === guessKey);
+      const matches = bestMatchCount(guess);
+      if (group) {
+        solved.push({ ...group, words: group.words.map(normalizeWord) });
+        remainingWords = remainingWords.filter(w => !selected.includes(w));
+        selected = [];
+        setMessage(solved.length === 4 ? '4 matched — you solved it!' : '4 matched — correct!', 'good');
+      } else {
+        mistakes++;
+        if (mistakes >= 4) setMessage(`${matches} matched — game over. Reset to try again.`, 'bad');
+        else setMessage(matches === 3 ? '3 matched — one away...' : `${matches} matched — not quite.`, 'bad');
+        shakeSelection(guess);
+      }
+      saveProgress();
+      renderGame();
+      if (!group) shakeSelection(guess);
+    }
+    function setMessage(text, type = '') {
+      message.textContent = text;
+      message.className = 'message ' + type;
+    }
+    function showEditor() {
+      gameView.classList.add('hidden');
+      editorView.classList.remove('hidden');
+      document.getElementById('titleInput').value = puzzle.title || '';
+      document.getElementById('dateInput').value = puzzle.date || '';
+      document.getElementById('funFactInput').value = puzzle.funFact || '';
+      renderEditor();
+    }
+    function showGame() {
+      editorView.classList.add('hidden');
+      gameView.classList.remove('hidden');
+      startGame(false);
+    }
+    function renderEditor() {
+      const holder = document.getElementById('groupsEditor');
+      holder.innerHTML = '';
+      puzzle.groups.forEach((group, index) => {
+        const box = document.createElement('div');
+        box.className = 'group-box';
+        box.innerHTML = `
+          <div class="field"><label>Group ${index + 1} category</label><input type="text" data-field="name" data-index="${index}" value="${escapeAttr(group.name)}"></div>
+          <div class="field"><label>Difficulty/color</label><select data-field="difficulty" data-index="${index}">
+            ${['yellow','green','blue','purple'].map(c => `<option value="${c}" ${group.difficulty === c ? 'selected' : ''}>${c}</option>`).join('')}
+          </select></div>
+          <div class="field"><label>4 words, separated by commas</label><textarea data-field="words" data-index="${index}">${escapeHtml(group.words.join(', '))}</textarea><div class="hint">Example: BIRD, PLANE, KITE, DRONE</div></div>`;
+        holder.appendChild(box);
+      });
+    }
+    function collectEditorPuzzle() {
+      const next = {
+        title: document.getElementById('titleInput').value.trim() || 'Houston Melee Connections',
+        date: document.getElementById('dateInput').value.trim(),
+        funFact: document.getElementById('funFactInput').value.trim(),
+        groups: []
+      };
+      for (let i = 0; i < 4; i++) {
+        const name = document.querySelector(`[data-index="${i}"][data-field="name"]`).value.trim();
+        const difficulty = document.querySelector(`[data-index="${i}"][data-field="difficulty"]`).value;
+        const words = document.querySelector(`[data-index="${i}"][data-field="words"]`).value.split(',').map(normalizeWord).filter(Boolean);
+        next.groups.push({ name, difficulty, words });
+      }
+      return next;
+    }
+    function validatePuzzle(p = collectEditorPuzzle()) {
+      const errors = [];
+      if (p.groups.length !== 4) errors.push('Puzzle needs 4 groups.');
+      p.groups.forEach((g, i) => {
+        if (!g.name) errors.push(`Group ${i + 1} needs a category name.`);
+        if (g.words.length !== 4) errors.push(`Group ${i + 1} needs exactly 4 words.`);
+      });
+      const allWords = p.groups.flatMap(g => g.words);
+      const dupes = allWords.filter((w, i) => allWords.indexOf(w) !== i);
+      if (allWords.length !== 16) errors.push('Puzzle needs 16 total words.');
+      if (dupes.length) errors.push('Duplicate words found: ' + [...new Set(dupes)].join(', '));
+      return errors;
+    }
+    function saveFromEditor() {
+      const next = collectEditorPuzzle();
+      const errors = validatePuzzle(next);
+      const editorMsg = document.getElementById('editorMessage');
+      if (errors.length) {
+        editorMsg.textContent = errors.join(' ');
+        editorMsg.className = 'message bad';
+        return;
+      }
+      puzzle = next;
+      savePuzzle();
+      clearProgress();
+      editorMsg.textContent = 'Saved.';
+      editorMsg.className = 'message good';
+      showGame();
+      startGame(true);
+    }
+    function exportPuzzle() {
+      const blob = new Blob([JSON.stringify(puzzle, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = (puzzle.title || 'connections-puzzle').toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+    function importPuzzle(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const imported = JSON.parse(reader.result);
+          const errors = validatePuzzle(imported);
+          if (errors.length) throw new Error(errors.join(' '));
+          puzzle = imported;
+          savePuzzle();
+          clearProgress();
+          showGame();
+          startGame(true);
+          setMessage('Puzzle imported.', 'good');
+        } catch (err) { alert('Could not import puzzle: ' + err.message); }
+      };
+      reader.readAsText(file);
+    }
+    function newBlankPuzzle() {
+      puzzle = {
+        title: 'Houston Melee Connections',
+        date: '',
+        funFact: '',
+        groups: [1,2,3,4].map((n, i) => ({ name: `Category ${n}`, difficulty: ['yellow','green','blue','purple'][i], words: ['WORD 1','WORD 2','WORD 3','WORD 4'] }))
+      };
+      clearProgress();
+      showEditor();
+    }
+    function escapeHtml(str) { return String(str).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
+    function escapeAttr(str) { return escapeHtml(str); }
+
+    function unlockAdmin() {
+      const u = document.getElementById('adminUser').value.trim();
+      const p = document.getElementById('adminPass').value;
+      if (u === ADMIN_USERNAME && p === ADMIN_PASSWORD) {
+        sessionStorage.setItem(ADMIN_SESSION_KEY, 'yes');
+        document.getElementById('loginView').classList.add('hidden');
+        document.getElementById('appWrap').classList.remove('hidden');
+        document.getElementById('loginError').textContent = '';
+        return true;
+      }
+      document.getElementById('loginError').textContent = 'Wrong username or password.';
+      return false;
+    }
+    function lockAdmin() {
+      sessionStorage.removeItem(ADMIN_SESSION_KEY);
+      document.getElementById('appWrap').classList.add('hidden');
+      document.getElementById('loginView').classList.remove('hidden');
+    }
+    document.getElementById('loginBtn').onclick = unlockAdmin;
+    document.getElementById('adminPass').addEventListener('keydown', e => { if (e.key === 'Enter') unlockAdmin(); });
+    document.getElementById('adminUser').addEventListener('keydown', e => { if (e.key === 'Enter') unlockAdmin(); });
+    if (sessionStorage.getItem(ADMIN_SESSION_KEY) === 'yes') {
+      document.getElementById('loginView').classList.add('hidden');
+      document.getElementById('appWrap').classList.remove('hidden');
+    }
+
+    document.getElementById('playBtn').onclick = showGame;
+    document.getElementById('editBtn').onclick = showEditor;
+    document.getElementById('newBtn').onclick = newBlankPuzzle;
+    document.getElementById('exportBtn').onclick = exportPuzzle;
+    document.getElementById('logoutBtn').onclick = lockAdmin;
+    document.getElementById('importFile').onchange = e => e.target.files[0] && importPuzzle(e.target.files[0]);
+    document.getElementById('shuffleBtn').onclick = () => { remainingWords = shuffle(remainingWords); selected = []; saveProgress(); renderGame(); };
+    document.getElementById('deselectBtn').onclick = () => { selected = []; renderGame(); };
+    document.getElementById('submitBtn').onclick = submitGuess;
+    document.getElementById('resetBtn').onclick = () => startGame(true);
+    document.getElementById('saveBtn').onclick = saveFromEditor;
+    document.getElementById('validateBtn').onclick = () => {
+      const errors = validatePuzzle();
+      const editorMsg = document.getElementById('editorMessage');
+      editorMsg.textContent = errors.length ? errors.join(' ') : 'Looks good!';
+      editorMsg.className = 'message ' + (errors.length ? 'bad' : 'good');
+    };
+
+    startGame(false);
+  </script>
+</body>
+</html>
