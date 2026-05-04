@@ -1,7 +1,7 @@
 {
-  "title": "Houston Melee Connections",
-  "date": "4/27 pt 2",
-  "funFact": "Moonwalk is on 4/30! ",
+  "title": "Houston Melee Connections #3 (Air) ",
+  "date": "5/4/2026",
+  "funFact": "Intravisual, Hashmane, Hod & Oswald will be at Q House! ",
   "players": [
     "Cilan",
     "warme",
@@ -827,55 +827,55 @@
   ],
   "groups": [
     {
-      "name": "Things that counter Cilan",
-      "difficulty": "purple",
-      "words": [
-        "STOOLS",
-        "MEXICANS",
-        "PLAT PLAYERS",
-        "CILAN"
-      ]
-    },
-    {
-      "name": "Static Doubles Teams Members",
+      "name": "FOOD/FOOD ITEMS",
       "difficulty": "yellow",
       "words": [
-        "CHILL",
-        "WARME",
-        "ISMON",
-        "SHADOW_PR"
+        "CHIKIN",
+        "POTATO",
+        "SOURDOUGH",
+        "CILANTRO"
       ]
     },
     {
-      "name": "We Don't Drive",
-      "difficulty": "blue",
-      "words": [
-        "FAI",
-        "QUESTA",
-        "SHELO",
-        "LUIGIPHONE"
-      ]
-    },
-    {
-      "name": "Moonwalk Things",
+      "name": "FORMERLY CSTAT",
       "difficulty": "green",
       "words": [
-        "TACO TRUCK",
-        "CIGARETTES",
-        "PHONE STREAM",
-        "HAIRCUTS"
+        "ALYJ",
+        "AIR",
+        "BRYCE",
+        "CHAPAPA"
+      ]
+    },
+    {
+      "name": "ADJECTIVES FOR THE WEATHER",
+      "difficulty": "blue",
+      "words": [
+        "WARME",
+        "CHILL",
+        "BREEZY",
+        "NASTY"
+      ]
+    },
+    {
+      "name": "SPECIAL CHARACTERS REQUIRED",
+      "difficulty": "purple",
+      "words": [
+        "DJC-BASS",
+        "SHADOW_PR",
+        "#REKT",
+        "CA$H"
       ]
     }
   ],
   "guessGame": {
     "enabled": true,
-    "title": "What player is this?",
-    "prompt": "Watch the first 30 seconds.\nWho is playing?",
-    "videoSrc": "guess-clips/touhni.mp4",
-    "guessPort": "Player 2",
+    "title": "Who is the Falco?",
+    "prompt": "Watch the first 30 seconds. Who is playing?",
+    "videoSrc": "guess-clips/ramz.mp4",
+    "guessPort": "Player 1",
     "stockIcon": "",
     "guessDescription": "",
-    "answer": "Touhni",
+    "answer": "Ramz",
     "acceptedAnswers": []
   }
 }
